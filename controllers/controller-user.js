@@ -1,4 +1,4 @@
-const { User } = require('../models');
+const { User, Thought } = require('../models');
 
 // /api/users...this is the piece you have to map with the routes...
 const controllerUser = {
@@ -60,7 +60,16 @@ const controllerUser = {
                 res.status(404).json({ message: "no user found with this id..."});
                 return;
             }
-            res.json(results);
+            // this is not idea...deleting Thoughts based on username
+            //ideally I would like to utilize the thoughts array
+            Thought.deleteMany({ username: results.username })
+            .then(thoughtResults => {
+                if(!thoughtResults) {
+                    res.status(404).json({ message: "no thoughts found with this username..."});
+                    return;
+                }
+                res.json("user deleted...thoughts deleted...");
+            })
         })
         .catch(err => res.status(400).json(err));
     },
@@ -68,7 +77,7 @@ const controllerUser = {
 
     // Add new friend to a user's friend List
     // /api/users/:userId/friends/:friendId
-    addFriendtoUser({ params, body }, res){
+    addFriend({ params, body }, res){
         User.findOneAndUpdate({ _id: params.userId },{ $push: {friends: params.friendId} }, {new: true})
         .then(results => {
             if (!results) {
@@ -81,7 +90,7 @@ const controllerUser = {
     },
 
 
-    removeFriendfromUser({ params, body }, res){
+    removeFriend({ params, body }, res){
         User.findOneAndUpdate({ _id: params.userId },{ $pull: {friends: params.friendId} }, {new: true})
         .then(results => {
             if (!results) {
