@@ -64,7 +64,7 @@ const controllerThought = {
                 res.status(404).json({ message: "no thought found with this id..."});
                 return;
             }
-            res.json(results);
+            res.json("Thought deleted");
         })
         .catch(err => res.status(400).json(err));
     },

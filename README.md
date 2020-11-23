@@ -13,11 +13,12 @@
   
   <a name="Installation:"></a>
   ## Installation:  
-  from the command line, navigate to the root directory where the application is stored.  Then run "npm install" followed by "npm start".
+  From the command line, navigate to the root directory where the application is stored.  Then run "npm install" followed by "npm start".
   
   <a name="How-To:"></a>
   ## How-To:  
-  Currently this application can only be used through a REST API Testing Tool such as Postman or Insomnia.  Post, Put, and Delete routes can be accessed through these tools while the application is running.
+  Currently this application can only be used through a REST API Testing Tool such as Postman or Insomnia.  Post, Put, and Delete routes can be accessed through these tools while the application is running.  Here is a demonstration video:
+  https://drive.google.com/file/d/1tqzBv7RveLsUsMbTCuSm9SR7wo4bG-QW/view
 
   <a name="Contribute:"></a>
   ## Contribute:  
