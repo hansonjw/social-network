@@ -1,5 +1,7 @@
 const { Thought } = require('../models');
 
+// is there something up with this file?
+
 
 const controllerThought = {
     
